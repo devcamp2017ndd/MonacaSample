@@ -1,0 +1,67 @@
+<html>
+ <head>
+ <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="Content-Security-Policy" content="default-src * data:; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
+ 
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>  
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/onsen/2.0.5/js/onsenui.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/onsen/2.0.5/js/angular-onsenui.min.js"></script>   
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/onsen/2.0.5/css/onsenui.min.css" />
+   <link rel="stylesheet" href="lib/onsenui/css/onsen-css-components_cus.css">
+   <link rel="stylesheet" href="css/style.css">
+   
+   <script>
+      var app = ons.bootstrap();
+     
+      //app.controller('navi',function($scope){
+      //   ons.ready(function() {
+      //     navi.pushToPage('memorys.html', {animation:'none'});
+      //   });
+      //});
+     
+      app.controller('menu',function($scope){
+       
+        $scope.onClickMenuMemorys = function(){
+          //if(navi.pages.length >= 2) navi.popPage();
+          navi.pushPage('pages/memorys/memorys.html', {animation:"fade"});
+          menu.closeMenu();
+        }
+       
+        $scope.onClickMenuAccsess = function(){
+          navi.pushPage('pages/access/access.html', {animation:"fade"});
+          menu.closeMenu();
+        }
+       
+        $scope.onClickMenuLog = function(){
+          navi.pushPage('pages/log/log.html', {animation:"fade"});
+          menu.closeMenu();
+        }
+       
+        $scope.onClickMenuInfo = function(){
+          navi.pushPage('pages/info/info.html', {animation:"fade"});
+          menu.closeMenu();
+        }
+       
+        $scope.onClickMenuSetting = function(){
+          navi.pushPage('pages/setting/setting.html', {animation:"fade"});
+          menu.closeMenu();
+        }
+       
+        $scope.onClickMenuLogin = function(){
+          navi.pushPage('pages/login.html', {animation:"slide"});
+          menu.closeMenu();
+        }
+       
+      });
+      
+   </script>
+  </head> 
+  <body>
+
+    <ons-sliding-menu var="menu" menu-page="menu.html" side="right" type="overlay" max-slide-distance="250px" swipeable="false">
+      <ons-navigator var="navi" page="pages/login.html" ></ons-navigator>
+    </ons-sliding-menu>
+
+  </body>
+</html>
